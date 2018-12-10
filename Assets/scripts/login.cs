@@ -13,9 +13,9 @@ public class login : MonoBehaviour
     public GameObject vareded;
     public GameObject netErr;
     public GameObject usrErr;
-
-
-    public void LOGIN()
+	public GameObject mainpage;
+	public GameObject loginpage;
+	public void LOGIN()
     {
         if (CheckInternetConnection())
         {
@@ -61,7 +61,9 @@ public class login : MonoBehaviour
                 PlayerPrefs.SetString("username", username.text.Trim());
                 vareded.SetActive(true);
                 StartCoroutine(Example(vareded));
-            }
+				mainpage.active = true;
+				loginpage.active = false;
+			}
         }
         catch
         {
