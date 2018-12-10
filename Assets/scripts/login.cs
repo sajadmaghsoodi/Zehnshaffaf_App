@@ -10,27 +10,32 @@ public class login : MonoBehaviour
 {
     public InputField username;
     public InputField password;
+    public GameObject vareded;
+    public GameObject netErr;
+    public GameObject usrErr;
+
+
     public void LOGIN()
     {
         if (CheckInternetConnection())
         {
             sync();
-            Debug.Log("shod");
         }
         else
         {
-            Debug.Log("NET ERR");
+            netErr.SetActive(true);
+            StartCoroutine(Example(netErr));
         }
     }
     void sync()
     {
         try
         {
-            string url = @"http://arch.coolpage.biz/install.php";
+            string url = @"http://unityhosting.ir/zehn/login.php";
             string str = username.text.Trim();
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
-            string Data = "name=" + str;
+            string Data = "username=" + str;
             Data += "&password=" + password.text.Trim();
             byte[] postBytes = Encoding.ASCII.GetBytes(Data);
             req.ContentType = "application/x-www-form-urlencoded";
@@ -47,25 +52,26 @@ public class login : MonoBehaviour
             {
                 PlayerPrefs.SetInt("login", 0);
                 PlayerPrefs.SetString("username", "");
-                Debug.Log("نام کاربری صحیح نمیباشد");
-            }
-            else if (responseText == "1")
-            {
-                PlayerPrefs.SetInt("login", 0);
-                PlayerPrefs.SetString("username", "");
-                Debug.Log("کلمه عبور صحیح نمیباشد");
+                usrErr.SetActive(true);
+                StartCoroutine(Example(usrErr));
             }
             else if (responseText == "2")
             {
                 PlayerPrefs.SetInt("login", 1);
                 PlayerPrefs.SetString("username", username.text.Trim());
-                Debug.Log("وارد شدید");
+                vareded.SetActive(true);
+                StartCoroutine(Example(vareded));
             }
         }
         catch
         {
 
         }
+    }
+    IEnumerator Example(GameObject a)
+    {
+        yield return new WaitForSecondsRealtime(2);
+        a.SetActive(false);
     }
     bool CheckInternetConnection()
     {
