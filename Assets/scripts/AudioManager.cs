@@ -23,7 +23,21 @@ public class AudioManager : MonoBehaviour {
     public Text[] TimSec;
     public AudioClip[] Audios;
     private AudioSource source;
-
+	public GameObject play1;
+	public GameObject play2;
+	public GameObject play3;
+	public GameObject play4;
+	public GameObject play5;
+	public GameObject pause1;
+	public GameObject pause2;
+	public GameObject pause3;
+	public GameObject pause4;
+	public GameObject pause5;
+	public Text timer1;
+	public Text timer2;
+	public Text timer3;
+	public Text timer4;
+	public Text timer5;
 	void Start () {
         source = GetComponent<AudioSource>();
 		
@@ -103,7 +117,7 @@ public class AudioManager : MonoBehaviour {
     }
     public void Back()
     {
-        SceneManager.LoadScene(0);
+		SceneManager.LoadScene(0);
     }
     //Reset Functions
     public void Reset01()
@@ -151,6 +165,18 @@ public class AudioManager : MonoBehaviour {
         source.clip = Audios[a];
         source.Play();
     }
-
+	public void Allpause()
+	{
+		play1.SetActive(true);
+		play2.SetActive(true);
+		play3.SetActive(true);
+		play4.SetActive(true);
+		play5.SetActive(true);
+		pause1.SetActive(false);
+		pause2.SetActive(false);
+		pause3.SetActive(false);
+		pause4.SetActive(false);
+		pause5.SetActive(false);
+	}
 
 }
