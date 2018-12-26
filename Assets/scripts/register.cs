@@ -249,18 +249,11 @@ public class register : MonoBehaviour
     }
     bool CheckInternetConnection()
     {
-        try
-        {
-            using (var client = new WebClient())
-            using (var stream = client.OpenRead("http://unityhosting.ir"))
-            {
-                return true;
-            }
-        }
-        catch
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             return false;
         }
+        return true;
     }
     bool IsValidEmail()
     {

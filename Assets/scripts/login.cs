@@ -13,19 +13,19 @@ public class login : MonoBehaviour
     public GameObject vareded;
     public GameObject netErr;
     public GameObject usrErr;
-	public GameObject mainpage;
-	public GameObject loginpage;
-	public void LOGIN()
+    public GameObject mainpage;
+    public GameObject loginpage;
+    public void LOGIN()
     {
-        
-        if (Application.internetReachability == NetworkReachability.NotReachable)
+
+        if (CheckInternetConnection())
         {
-            netErr.SetActive(true);
-            StartCoroutine(Example(netErr));
+            sync();
         }
         else
         {
-            sync();
+            netErr.SetActive(true);
+            StartCoroutine(Example(netErr));
         }
     }
     void sync()
@@ -62,9 +62,9 @@ public class login : MonoBehaviour
                 PlayerPrefs.SetString("username", username.text.Trim());
                 vareded.SetActive(true);
                 StartCoroutine(Example(vareded));
-				mainpage.active = true;
-				loginpage.active = false;
-			}
+                mainpage.active = true;
+                loginpage.active = false;
+            }
         }
         catch
         {
@@ -78,18 +78,11 @@ public class login : MonoBehaviour
     }
     bool CheckInternetConnection()
     {
-        try
-        {
-            using (var client = new WebClient())
-            using (var stream = client.OpenRead("http://www.google.com"))
-            {
-                return true;
-            }
-        }
-        catch
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             return false;
         }
+        return true;
     }
 
 }
