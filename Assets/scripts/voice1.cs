@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class voice1 : MonoBehaviour {
 	public string urlvoice1 = "https://www.tarafdari.com/sites/default/files/contents/user6984/content-sound/157.anathema_-_parisienne_moonlight.mp3";
 	public GameObject processbar1;
@@ -15,9 +15,17 @@ public class voice1 : MonoBehaviour {
 	float timer;
 	public GameObject prossmusic;
 	float tmp;
+	public GameObject playbtn;
+	public GameObject pausebtn;
+	int pointer;
+	public Slider music;
+	int i = 0;
+	float X;
+	int currentcliplngth;
+	float priviusmusicvalue;
 	// Use this for initialization
 	void Start () {
-	 tmp = prossmusic.transform.localPosition.x;
+	 
 	}
 	IEnumerator LoadURL()
 	{
@@ -44,11 +52,12 @@ public class voice1 : MonoBehaviour {
 		StartCoroutine(LoadURL());
 	}
 	public void play1()
-	{ 
+	{
 
-		playing = true;
+		Debug.Log("play1");
 		mas.clip = clip;
 		mas.Play();
+		played();
 		
 	}
 	public void pause1()
@@ -56,21 +65,43 @@ public class voice1 : MonoBehaviour {
 		mas.Pause();
 
 	}
+	public void Reset1()
+	{
+		mas.time = 0;
+		music.value = 0;
+	}
+	
+	public void played()
+	{
+		currentcliplngth = (int)mas.clip.length;
+	}
 	// Update is called once per frame
 	void Update () {
+
+
+
 		if ( www != null)
 		{
 			processbar1.transform.localScale = new Vector3(www.progress * 2.5f, 1, 1);
 			//gameObject.active = true;
-			
 		}
-		Debug.Log(playing);	
-		if (playing)
+
+
+		
+		if(play.active && !playbtn.active)
 		{
-			Debug.Log("entered");
+			int lngth = (int)mas.clip.length;
 			timer += Time.deltaTime;
-			Debug.Log(timer);
-			prossmusic.transform.localPosition = new Vector3(tmp + timer, prossmusic.transform.localPosition.y, prossmusic.transform.localPosition.z);
+			if(pointer <= lngth)
+			if(timer > 1)
+			{
+					X = 100f / (float)lngth;
+					pointer++;
+				music.value = music.value + X ;
+					priviusmusicvalue = music.value;
+				timer = 0;
+			}
+			
 		}
 	}
 }
