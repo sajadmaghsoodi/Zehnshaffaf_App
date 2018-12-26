@@ -24,8 +24,18 @@ public class register : MonoBehaviour
     public InputField rePassword;
     public InputField mail;
     public InputField phone;
-    public GameObject netErr;
     public Slider passCmx;
+    public GameObject msg;
+    public GameObject passer;
+    public GameObject usrer;
+    public GameObject userkootah;
+    public GameObject passkotah;
+    public GameObject passync;
+    public GameObject mailer;
+    public GameObject phoneer;
+    public GameObject mailtek;
+    public GameObject eter;
+    public GameObject neter;
 
     void Update()
     {
@@ -40,63 +50,69 @@ public class register : MonoBehaviour
     }
     public void REGISTER()
     {
-        if (CheckInternetConnection())
+        if (username.text != "" && password.text != "" && rePassword.text != "" && mail.text != "" && phone.text != "")
         {
-            if (IsValidEmail())
+            if (CheckInternetConnection())
             {
-                if (IsValidPhone())
+                if (IsValidEmail())
                 {
-                    if (passSync())
+                    if (IsValidPhone())
                     {
-                        if (password.text.Trim().Length > 8)
+                        if (passSync())
                         {
-                            if (username.text.Trim().Length > 5)
+                            if (password.text.Trim().Length > 5)
                             {
-                                if (password.text.Contains("\"") || password.text.Contains("\'"))
-                                {
-                                    //pass ' , " dare
-                                }
-                                else
+                                if (username.text.Trim().Length > 5)
                                 {
                                     if (password.text.Contains("\"") || password.text.Contains("\'"))
                                     {
-                                        //usr ' , " dare
+                                        errShower(passer);
                                     }
                                     else
                                     {
-                                        sync();
+                                        if (username.text.Contains("\"") || username.text.Contains("\'"))
+                                        {
+                                            errShower(usrer);
+                                        }
+                                        else
+                                        {
+                                            sync();
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    errShower(userkootah);
                                 }
                             }
                             else
                             {
-                                //usr kootahe
+                                errShower(passkotah);
                             }
                         }
                         else
                         {
-                            //pass kootahe
+                            errShower(passync);
                         }
                     }
                     else
                     {
-                        //pass not sync
+                        errShower(phoneer);
                     }
                 }
                 else
                 {
-                    //phone
+                    errShower(mailer);
                 }
             }
             else
             {
-                //mail
+                errShower(neter);
             }
         }
         else
         {
-            netErr.SetActive(true);
-            StartCoroutine(Example(netErr));
+            errShower(eter);
         }
     }
     bool IsValidPhone()
@@ -115,8 +131,22 @@ public class register : MonoBehaviour
 
         return true;
     }
+    private void errShower(GameObject name)
+    {
+        passer.SetActive(false);
+        usrer.SetActive(false);
+        userkootah.SetActive(false);
+        passkotah.SetActive(false);
+        passync.SetActive(false);
+        mailer.SetActive(false);
+        phoneer.SetActive(false);
+        mailtek.SetActive(false);
+        eter.SetActive(false);
+        neter.SetActive(false);
+        msg.SetActive(true);
+        name.SetActive(true);
+    }
 
-    
     public PasswordScore CheckStrength(string password)
     {
         int score = 0;
@@ -188,7 +218,7 @@ public class register : MonoBehaviour
             string responseText = sr.ReadToEnd();
             if (responseText == "0")
             {
-                Debug.Log("azGhablHast");
+                errShower(mailtek);
             }
             else if (responseText == "3")
             {
@@ -222,7 +252,7 @@ public class register : MonoBehaviour
         try
         {
             using (var client = new WebClient())
-            using (var stream = client.OpenRead("http://google.com"))
+            using (var stream = client.OpenRead("http://unityhosting.ir"))
             {
                 return true;
             }
@@ -234,15 +264,28 @@ public class register : MonoBehaviour
     }
     bool IsValidEmail()
     {
-        try
+        string t = mail.text.Trim();
+        bool f = false;
+        int i = 0;
+        for (; i < t.Length; i++)
         {
-            var addr = new System.Net.Mail.MailAddress(mail.text.Trim());
-            return addr.Address == mail.text.Trim();
+            if (t[i] == '@')
+            {
+                f = true;
+                break;
+            }
         }
-        catch
+        if (f)
         {
-            return false;
+            for (; i < t.Length; i++)
+            {
+                if (t[i] == '.')
+                {
+                    return true;
+                }
+            }
         }
+        return false;
     }
     public int checkStrength(string password)
     {

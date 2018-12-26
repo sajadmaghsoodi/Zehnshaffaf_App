@@ -8,7 +8,7 @@ public class mainCamera : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        PlayerPrefs.SetInt("login", 0);
+        //PlayerPrefs.SetInt("login", 0);
 
         if (PlayerPrefs.GetInt("login") == 1)
         {
