@@ -17,14 +17,15 @@ public class login : MonoBehaviour
 	public GameObject loginpage;
 	public void LOGIN()
     {
-        if (CheckInternetConnection())
-        {
-            sync();
-        }
-        else
+        
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             netErr.SetActive(true);
             StartCoroutine(Example(netErr));
+        }
+        else
+        {
+            sync();
         }
     }
     void sync()
@@ -90,4 +91,5 @@ public class login : MonoBehaviour
             return false;
         }
     }
+
 }
