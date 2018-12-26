@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -36,6 +36,8 @@ public class register : MonoBehaviour
     public GameObject mailtek;
     public GameObject eter;
     public GameObject neter;
+	public GameObject signuppanel;
+	public GameObject mainpanel;
 
     void Update()
     {
@@ -77,7 +79,9 @@ public class register : MonoBehaviour
                                         else
                                         {
                                             sync();
-                                        }
+											signuppanel.SetActive(false);
+											mainpanel.SetActive(true);
+										}
                                     }
                                 }
                                 else
