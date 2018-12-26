@@ -24,11 +24,10 @@ public class feedBack : MonoBehaviour
             if (CheckInternetConnection())
             {
                 sync();
-                errShower(movaf);
             }
             else
             {
-            errShower(neter);
+                errShower(neter);
             }
         }
         else
@@ -82,11 +81,11 @@ public class feedBack : MonoBehaviour
             string responseText = sr.ReadToEnd();
             if (responseText == "0")
             {
-                //nashod
+                errShower(khalier);
             }
             else if (responseText == "1")
             {
-                //shod
+                errShower(movaf);
             }
         }
         catch
