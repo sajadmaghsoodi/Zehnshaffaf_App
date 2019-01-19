@@ -3,7 +3,6 @@ PlayerPath?
 C:/Users/sajad/Desktop/zehnshaffaf.apk
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
-Assets/Scenes/Audios.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -170,3 +169,4 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 6edb9918751245f459496e8ad09f0e09 Assembly-CSharp.dll:.feedBack
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+30deeaf580084af4cc8617f6c8f7f3e6 Assembly-CSharp.dll:.voice1
