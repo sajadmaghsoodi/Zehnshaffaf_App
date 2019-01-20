@@ -51,7 +51,7 @@ public class voice1 : MonoBehaviour {
 	public void download1()
 	{
 
-		LoadURL("https://storage.tarafdari.com/contents/user221704/content-sound/nirvana_-_the_man_who_sold_the_world.mp3","11.mp3");
+		LoadURL("http://unityhost.ir/zehn/mp3s/1.mp3", "11.mp3");
 	}
 	public  void playbtn1()
 	{
