@@ -8,11 +8,13 @@ public class mainCamera : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Zarinpal.Initialize();
+        Zarinpal.Purchase(100,"test");
         //PlayerPrefs.SetInt("login", 0);
-
+        Debug.Log("pardakht shod");
         if (PlayerPrefs.GetInt("login") == 1)
         {
-            Debug.Log(PlayerPrefs.GetString("username") + "khoshamadi");
+            //Debug.Log(PlayerPrefs.GetString("username") + "khoshamadi");
         }
         else
         {
@@ -25,4 +27,5 @@ public class mainCamera : MonoBehaviour
     {
 
     }
+
 }

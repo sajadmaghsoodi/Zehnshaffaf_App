@@ -126,7 +126,7 @@ public class Appmanager : MonoBehaviour {
 			}
 
 		}
-		Debug.Log("voicedownload checked");
+		//Debug.Log("voicedownload checked");
 	}
 	public void UpdateChecker()
 	{
@@ -149,7 +149,7 @@ public class Appmanager : MonoBehaviour {
 				string responseTxt = sr.ReadToEnd();
 		 if (responseTxt[0] == '1')
 				{
-					Debug.Log("updated");
+					//Debug.Log("updated");
 				}
 			else
 				{
