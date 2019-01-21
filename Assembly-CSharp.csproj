@@ -71,6 +71,14 @@
      <Compile Include="Assets\scripts\voice7.cs" />
      <Compile Include="Assets\scripts\voice8.cs" />
      <Compile Include="Assets\scripts\voice9.cs" />
+     <Compile Include="Assets\Zarinpal\Example\ZarinpalExample.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\IZarinpalPlatform.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\TestZarinpal.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\Zarinpal.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\ZarinpalAndroid.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\ZarinpalConfig.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\ZarinpalEditor.cs" />
+     <Compile Include="Assets\Zarinpal\Scripts\Runtime\ZarinpalLog.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

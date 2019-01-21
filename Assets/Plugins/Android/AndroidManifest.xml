@@ -15,7 +15,7 @@
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="gt-club" android:host="zarinpal_result" />
+        <data android:scheme="gt-club" android:host="zarinpalpayment" />
       </intent-filter>
     </activity>
   </application>
