@@ -34,7 +34,8 @@ public class Appmanager : MonoBehaviour {
 	public GameObject play10;
 	public GameObject play11;
 	public GameObject play12;
-
+	public GameObject Expierd1;
+	public GameObject Expierd2;
 	public GameObject updatemsg;
 	int i = 0;
 	// Use this for initialization
@@ -43,6 +44,7 @@ public class Appmanager : MonoBehaviour {
 		UpdateChecker();
 		Logincheck();
 		voicedownloadcheck();
+		Specialofferchecker();
 	}
 	public void Logincheck()
 	{
@@ -163,6 +165,79 @@ public class Appmanager : MonoBehaviour {
 				Debug.Log("faild to check update");
 			}
 			
+	}
+	
+    public void Specialofferchecker()
+	{
+
+		try
+		{
+			string code = "354241";//کدی که باید چک شود
+
+
+			string url = @"http://unityhosting.ir/zehn/codeChecker.php";
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+			req.Method = "POST";
+			string Data = "c=" + code;
+			byte[] postBytes = Encoding.ASCII.GetBytes(Data);
+			req.ContentType = "application/x-www-form-urlencoded";
+			req.ContentLength = postBytes.Length;
+			Stream requestStream = req.GetRequestStream();
+			requestStream.Write(postBytes, 0, postBytes.Length);
+			requestStream.Close();
+
+			HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+
+			var sr = new StreamReader(response.GetResponseStream());
+			string responseText = sr.ReadToEnd();
+			if (responseText == "1")
+			{
+				Expierd1.SetActive(false);
+			}
+			else
+			{
+				Expierd1.SetActive(true);
+			}
+
+		}
+		catch
+		{
+
+		}
+		try
+		{
+			string code = "12345332";//کدی که باید چک شود
+
+
+			string url = @"http://unityhosting.ir/zehn/codeChecker.php";
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+			req.Method = "POST";
+			string Data = "c=" + code;
+			byte[] postBytes = Encoding.ASCII.GetBytes(Data);
+			req.ContentType = "application/x-www-form-urlencoded";
+			req.ContentLength = postBytes.Length;
+			Stream requestStream = req.GetRequestStream();
+			requestStream.Write(postBytes, 0, postBytes.Length);
+			requestStream.Close();
+
+			HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+
+			var sr = new StreamReader(response.GetResponseStream());
+			string responseText = sr.ReadToEnd();
+			if (responseText == "1")
+			{
+				Expierd2.SetActive(false);
+			}
+			else
+			{
+				Expierd2.SetActive(true);
+			}
+
+		}
+		catch
+		{
+
+		}
 	}
 	// Update is called once per frame
 	void Update () {
