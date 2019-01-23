@@ -4,11 +4,19 @@ using UnityEngine.UI;
 
 public class ZarinpalExample : MonoBehaviour
 {
-    [SerializeField] private Text m_text;
+    [SerializeField]
+    private Text m_text;
 
-    [SerializeField] private InputField m_amount;
-    [SerializeField] private InputField m_desc;
-    [SerializeField] private InputField m_productID;
+    [SerializeField]
+    private InputField m_amount;
+    [SerializeField]
+    private InputField m2_desc;
+    [SerializeField]
+    private InputField m1_desc;
+    [SerializeField]
+    private InputField m_desc;
+    [SerializeField]
+    private InputField m_productID;
 
     void Start()
     {
@@ -56,12 +64,14 @@ public class ZarinpalExample : MonoBehaviour
 
     private void Zarinpal_PurchaseFailedToStart(string error)
     {
-        LogError("Purchase failed to start : "+ error);
+        LogError("Purchase failed to start : " + error);
     }
 
     private void Zarinpal_PurchaseSucceed(string productID, string authority)
     {
         Log(string.Format("Purchase success : productID : {0} , authority : {1} ", productID, authority));
+        m1_desc.text = "voice no " + productID + " is pardakhed";
+        m2_desc.text = "voice aut " + authority + " is pardakhed";
     }
 
     private void Zarinpal_PurchaseFailed()
@@ -103,14 +113,30 @@ public class ZarinpalExample : MonoBehaviour
         Zarinpal.Purchase(price, desc, productID);
     }
 
+    public void Purchase1()
+    {
+        Zarinpal.Purchase(100, "صوت شماره 1", "1");
+    }
+    public void Purchase2()
+    {
+        Zarinpal.Purchase(100, "صوت شماره 2", "2");
+    }
+    public void Purchase3()
+    {
+        Zarinpal.Purchase(100, "صوت شماره 3", "3");
+    }
+    public void Purchase4()
+    {
+        Zarinpal.Purchase(100, "صوت شماره 4", "4");
+    }
 
     private void Log(string log)
     {
-        m_text.text += "\n"+DateTime.Now.ToLongTimeString()+"  : <color=#FFFFFFFF>" + log+"</color>";
+        m_text.text += "\n" + DateTime.Now.ToLongTimeString() + "  : <color=#FFFFFFFF>" + log + "</color>";
     }
 
     private void LogError(string error)
     {
-        m_text.text += "\n" + DateTime.Now.ToLongTimeString() +"  : <color=#FF0000FF>" + error + "</color>";
+        m_text.text += "\n" + DateTime.Now.ToLongTimeString() + "  : <color=#FF0000FF>" + error + "</color>";
     }
 }
