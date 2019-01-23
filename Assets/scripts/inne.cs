@@ -140,18 +140,62 @@ public class inne : MonoBehaviour
     }
     public void Purchase1()
     {
-        Zarinpal.Purchase(100, "صوت شماره 1", "1");
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 1 ماه اول", "1");
     }
     public void Purchase2()
     {
-        Zarinpal.Purchase(100, "صوت شماره 2", "2");
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 2 ماه اول", "2");
     }
     public void Purchase3()
     {
-        Zarinpal.Purchase(100, "صوت شماره 3", "3");
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 3 ماه اول", "3");
     }
     public void Purchase4()
     {
-        Zarinpal.Purchase(100, "صوت شماره 4", "4");
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 4 ماه اول", "4");
     }
+	public void Purchase5()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی  5ماه اول", "5");
+	}
+	public void Purchase6()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 6 ماه اول", "6");
+	}
+	public void Purchase7()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 7 ماه اول", "7");
+	}
+	public void Purchase8()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 8 ماه اول", "8");
+	}
+	public void Purchase9()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 9 ماه اول", "9");
+	}
+	public void Purchase10()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 10 ماه اول", "10");
+	}
+	public void Purchase11()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 11 ماه اول", "11");
+	}
+	public void Purchase12()
+	{
+		Zarinpal.Initialize();
+		Zarinpal.Purchase(7700, "صوت شماره ی 12 ماه اول", "12");
+	}
 }

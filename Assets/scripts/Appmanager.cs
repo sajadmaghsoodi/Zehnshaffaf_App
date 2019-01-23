@@ -37,6 +37,30 @@ public class Appmanager : MonoBehaviour {
 	public GameObject Expierd1;
 	public GameObject Expierd2;
 	public GameObject updatemsg;
+	public GameObject Buypannel1;
+	public GameObject Buypannel2;
+	public GameObject Buypannel3;
+	public GameObject Buypannel4;
+	public GameObject Buypannel5;
+	public GameObject Buypannel6;
+	public GameObject Buypannel7;
+	public GameObject Buypannel8;
+	public GameObject Buypannel9;
+	public GameObject Buypannel10;
+	public GameObject Buypannel11;
+	public GameObject Buypannel12;
+	public GameObject CB1;
+	public GameObject CB2;
+	public GameObject CB3;
+	public GameObject CB4;
+	public GameObject CB5;
+	public GameObject CB6;
+	public GameObject CB7;
+	public GameObject CB8;
+	public GameObject CB9;
+	public GameObject CB10;
+	public GameObject CB11;
+	public GameObject CB12;
 	int i = 0;
 	// Use this for initialization
 	void Start () {
@@ -45,6 +69,8 @@ public class Appmanager : MonoBehaviour {
 		Logincheck();
 		voicedownloadcheck();
 		Specialofferchecker();
+		SyncvoiceBuyed();
+		VoiceBChecker();
 	}
 	public void Logincheck()
 	{
@@ -166,7 +192,6 @@ public class Appmanager : MonoBehaviour {
 			}
 			
 	}
-	
     public void Specialofferchecker()
 	{
 
@@ -190,6 +215,7 @@ public class Appmanager : MonoBehaviour {
 
 			var sr = new StreamReader(response.GetResponseStream());
 			string responseText = sr.ReadToEnd();
+
 			if (responseText == "1")
 			{
 				Expierd1.SetActive(false);
@@ -239,7 +265,123 @@ public class Appmanager : MonoBehaviour {
 
 		}
 	}
-	// Update is called once per frame
+	public void SyncvoiceBuyed()
+	{
+		try
+		{
+			string url = @"http://unityhosting.ir/zehn/userBuyid.php";
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+			req.Method = "POST";
+			string Data = PlayerPrefs.GetString("usrMail");
+			byte[] postBytes = Encoding.ASCII.GetBytes(Data);
+			req.ContentType = "application/x-www-form-urlencoded";
+			req.ContentLength = postBytes.Length;
+			Stream requestStream = req.GetRequestStream();
+			requestStream.Write(postBytes, 0, postBytes.Length);
+			requestStream.Close();
+
+			HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+
+			var sr = new StreamReader(response.GetResponseStream());
+			string responseText = sr.ReadToEnd();
+			responseText.Trim();
+			Debug.Log(responseText);
+			if ( responseText == "1")
+			{
+				PlayerPrefs.SetInt("VoiceB", 1);
+			}
+			if (responseText == "2")
+			{
+				PlayerPrefs.SetInt("VoiceB", 2);
+			}
+			if (responseText == "3")
+			{
+				PlayerPrefs.SetInt("VoiceB", 3);
+			}
+			if (responseText == "4")
+			{
+				PlayerPrefs.SetInt("VoiceB", 4);
+			}
+			if (responseText == "5")
+			{
+				PlayerPrefs.SetInt("VoiceB", 5);
+			}
+			if (responseText == "6")
+			{
+				PlayerPrefs.SetInt("VoiceB", 6);
+			}
+			if (responseText == "7")
+			{
+				PlayerPrefs.SetInt("VoiceB", 7);
+			}
+			if (responseText == "8")
+			{
+				PlayerPrefs.SetInt("VoiceB", 8);
+			}
+			if (responseText == "9")
+			{
+				PlayerPrefs.SetInt("VoiceB", 9);
+			}
+			if (responseText == "10")
+			{
+				PlayerPrefs.SetInt("VoiceB", 10);
+			}
+			if (responseText == "11")
+			{
+				PlayerPrefs.SetInt("VoiceB", 11);
+			}
+			if (responseText == "12")
+			{
+				PlayerPrefs.SetInt("VoiceB", 12);
+			}
+
+		}
+		catch
+		{
+
+		}
+	}
+	public void VoiceBChecker()
+	{
+		GameObject[] Buypannel;
+		Buypannel = new GameObject[13];
+		Buypannel[1] = Buypannel1;
+		Buypannel[2] = Buypannel2;
+		Buypannel[3] = Buypannel3;
+		Buypannel[4] = Buypannel4;
+		Buypannel[5] = Buypannel5;
+		Buypannel[6] = Buypannel6;
+		Buypannel[7] = Buypannel7;
+		Buypannel[8] = Buypannel8;
+		Buypannel[9] = Buypannel9;
+		Buypannel[10] = Buypannel10;
+		Buypannel[11] = Buypannel11;
+		Buypannel[12] = Buypannel12;
+		int Tmp = PlayerPrefs.GetInt("VoiceB");
+        for (int i = Tmp; i > 0; i --)
+		{
+			Buypannel[i].SetActive(false);
+		}
+		GameObject[] BDD;
+		BDD = new GameObject[13];
+		BDD[1] = CB1;
+		BDD[2] = CB2;
+		BDD[3] = CB3;
+		BDD[4] = CB4;
+		BDD[5] = CB5;
+		BDD[6] = CB6;
+		BDD[7] = CB7;
+		BDD[8] = CB8;
+		BDD[9] = CB9;
+		BDD[10] = CB10;
+		BDD[11]= CB11;
+		BDD[12] = CB12;
+		for( int i = Tmp + 2; i <= 12; i++)
+		{
+			BDD[i].SetActive(true);
+		}
+		
+	}
 	void Update () {
  
 	}
