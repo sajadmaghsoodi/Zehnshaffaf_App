@@ -56,10 +56,11 @@ public class login : MonoBehaviour
                 usrErr.SetActive(true);
                 StartCoroutine(Example(usrErr));
             }
-            else if (responseText == "2")
+            else
             {
                 PlayerPrefs.SetInt("login", 1);
                 PlayerPrefs.SetString("username", username.text.Trim());
+                PlayerPrefs.SetString("usrMail", responseText.Trim());
                 vareded.SetActive(true);
                 StartCoroutine(Example(vareded));
                 mainpage.active = true;

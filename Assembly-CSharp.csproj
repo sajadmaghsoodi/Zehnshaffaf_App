@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\Appmanager.cs" />
      <Compile Include="Assets\scripts\feedBack.cs" />
+     <Compile Include="Assets\scripts\inne.cs" />
      <Compile Include="Assets\scripts\login.cs" />
      <Compile Include="Assets\scripts\mainCamera.cs" />
      <Compile Include="Assets\scripts\Play.cs" />
