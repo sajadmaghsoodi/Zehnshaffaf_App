@@ -272,7 +272,7 @@ public class Appmanager : MonoBehaviour {
 			string url = @"http://unityhosting.ir/zehn/userBuyid.php";
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 			req.Method = "POST";
-			string Data = PlayerPrefs.GetString("usrMail");
+            string Data = "mail=" + PlayerPrefs.GetString("usrMail");
 			byte[] postBytes = Encoding.ASCII.GetBytes(Data);
 			req.ContentType = "application/x-www-form-urlencoded";
 			req.ContentLength = postBytes.Length;
