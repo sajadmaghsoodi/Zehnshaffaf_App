@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,6 +77,37 @@ public class ZarinpalExample : MonoBehaviour
         Log(string.Format("Purchase success : productID : {0} , authority : {1} ", productID, authority));
         m1_desc.text = "voice no " + productID + " is pardakhed";
         m2_desc.text = "voice aut " + authority + " is pardakhed";
+        try
+        {
+            string url = @"http://unityhosting.ir/zehn/userBuyer.php";
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            req.Method = "POST";
+            string Data = "mail=amin@lak.com";
+            Data += "&ln=" + productID.Trim();
+            byte[] postBytes = Encoding.ASCII.GetBytes(Data);
+            req.ContentType = "application/x-www-form-urlencoded";
+            req.ContentLength = postBytes.Length;
+            Stream requestStream = req.GetRequestStream();
+            requestStream.Write(postBytes, 0, postBytes.Length);
+            requestStream.Close();
+
+            HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+
+            var sr = new StreamReader(response.GetResponseStream());
+            string responseText = sr.ReadToEnd();
+            if (responseText == "1")
+            {
+                m1_desc.text = "shod";
+            }
+            else if (responseText == "0")
+            {
+                m1_desc.text = "naShod";
+            }
+        }
+        catch
+        {
+
+        }
     }
 
     private void Zarinpal_PurchaseFailed()
