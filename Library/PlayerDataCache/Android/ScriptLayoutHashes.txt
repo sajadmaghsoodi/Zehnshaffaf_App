@@ -187,3 +187,4 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 6b378b5a79242803ec1b9e3910a221e0 Assembly-CSharp.dll:.voice10
 6b378b5a79242803ec1b9e3910a221e0 Assembly-CSharp.dll:.voice8
 6b378b5a79242803ec1b9e3910a221e0 Assembly-CSharp.dll:.voice1
+f573c1225e969fa293463d7f2ff1d677 Assembly-CSharp.dll:.specialoffer

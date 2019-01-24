@@ -362,26 +362,10 @@ public class Appmanager : MonoBehaviour {
 		{
 			Buypannel[i].SetActive(false);
 		}
-		GameObject[] BDD;
-		BDD = new GameObject[13];
-		BDD[1] = CB1;
-		BDD[2] = CB2;
-		BDD[3] = CB3;
-		BDD[4] = CB4;
-		BDD[5] = CB5;
-		BDD[6] = CB6;
-		BDD[7] = CB7;
-		BDD[8] = CB8;
-		BDD[9] = CB9;
-		BDD[10] = CB10;
-		BDD[11]= CB11;
-		BDD[12] = CB12;
-		for( int i = Tmp + 2; i <= 12; i++)
-		{
-			BDD[i].SetActive(true);
-		}
 		
 	}
+
+	
 	void Update () {
  
 	}

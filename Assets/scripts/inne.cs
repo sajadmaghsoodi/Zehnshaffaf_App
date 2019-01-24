@@ -141,7 +141,7 @@ public class inne : MonoBehaviour
     public void Purchase1()
     {
         Zarinpal.Initialize();
-        Zarinpal.Purchase(7700, "صوت شماره ی 1 ماه اول", "1");
+        Zarinpal.Purchase(92000, "کل صوت های ماه اول", "12");
     }
     public void Purchase2()
     {
@@ -151,7 +151,7 @@ public class inne : MonoBehaviour
     public void Purchase3()
     {
         Zarinpal.Initialize();
-        Zarinpal.Purchase(7700, "صوت شماره ی 3 ماه اول", "3");
+        Zarinpal.Purchase(100, "صوت شماره ی 3 ماه اول", "3");
     }
     public void Purchase4()
     {
